@@ -1,0 +1,1 @@
+default['php']['composer']['install_path'] 	= '/usr/local/bin'

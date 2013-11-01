@@ -1,0 +1,14 @@
+configure_option -D "--enable-fpm"
+configure_option -D "--with-fpm-user=www-data"
+configure_option -D "--with-fpm-group=www-data"
+configure_option -D "--enable-mbstring"
+configure_option -D "--enable-mbregex"
+configure_option -D "--with-mysqli"
+configure_option -D "--with-openssl"
+configure_option -D "--with-curl"
+configure_option -D "--with-zlib"
+configure_option -D "--enable-opcache"
+
+install_package "http://us1.php.net/distributions/php-5.5.5.tar.bz2"
+install_pyrus
+install_xdebug_master
