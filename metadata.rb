@@ -11,6 +11,7 @@ depends 'build-essential'
 depends 'xml'
 depends 'git'
 depends 'base'
+depends 'web_server'
 
 supports 'ubuntu'
 

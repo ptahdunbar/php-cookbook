@@ -11,8 +11,7 @@ git "#{node[:php]['phpbuild']['path']}" do
 	repository node[:php]['phpbuild']['repository']
 	reference node[:php]['phpbuild']['revision']
 	action :checkout
-	user	node[:base][:user]
-	group	node[:base][:group]
+	group	node[:php][:group]
 end
 
 # install it if it doesnt exists
@@ -24,31 +23,26 @@ end
 
 # create standard directories
 directory "#{node[:php]['phpbuild']['path']}/versions" do
-	owner  node[:base][:user]
-	group  node[:base][:group]
-	mode   '0755'
+	group  node[:php][:group]
+	mode   0775
 	action :create
 end
 
 directory "#{node[:php]['phpbuild']['path']}/tmp" do
-	owner  node[:base][:user]
-	group  node[:base][:group]
-	mode   '0755'
+	group  node[:php][:group]
+	mode   0775
 	action :create
 end
 
 template "#{node[:php]['phpbuild']['path']}/share/php-build/default_configure_options" do
-	owner  node[:base][:user]
-	group  node[:base][:group]
+	group  node[:php][:group]
 	source "default_configure_options.erb"
 end
 
 remote_directory "#{node[:php]['phpbuild']['path']}/share/php-build/definitions" do
-	owner       node[:base][:user]
-	group       node[:base][:group]
-	files_owner node[:base][:user]
-	files_group node[:base][:group]
-	files_mode  '0755'
+	group       node[:php][:group]
+	files_group node[:php][:group]
+	files_mode  0775
 	source      'definitions'
 end
 
@@ -62,3 +56,4 @@ end
 # cp php-fpm.conf.default php-fpm.conf
 # create logs dir
 # start PHP-FPM
+

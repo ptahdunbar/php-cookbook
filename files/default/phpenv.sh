@@ -1,5 +1,5 @@
 #!/bin/sh
 
-export PATH=$PATH:/home/vagrant/.phpenv/bin
-eval "$(/home/vagrant/.phpenv/bin/phpenv init -)"
+export PATH=$PATH:/usr/local/phpenv/bin
+eval "$(/usr/local/phpenv/bin/phpenv init -)"
 phpenv rehash 2>/dev/null
