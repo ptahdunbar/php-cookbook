@@ -8,7 +8,7 @@
 #
 
 group node[:php][:group] do
-	members ["root", "vagrant"]
+	members ["root"]
 	system true
 	append true
 	action :create
