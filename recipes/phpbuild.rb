@@ -10,8 +10,8 @@
 git "#{node[:php]['phpbuild']['path']}" do
 	repository node[:php]['phpbuild']['repository']
 	reference node[:php]['phpbuild']['revision']
-	action :checkout
 	group	node[:php][:group]
+	action :checkout
 end
 
 # install it if it doesnt exists
@@ -51,9 +51,3 @@ bash "installing PHP #{node[:php]['version']}" do
 	code "php-build -i #{node[:php]['environment']} --pear #{node[:php]['version']} #{node[:php]['prefix_dir']}/#{node[:php]['version']}"
 	not_if { File.exists?("#{node[:php]['prefix_dir']}/#{node[:php]['version']}") }
 end
-
-# Install the PHP init script
-# cp php-fpm.conf.default php-fpm.conf
-# create logs dir
-# start PHP-FPM
-

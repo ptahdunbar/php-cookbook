@@ -2,7 +2,7 @@ default[:php]['install_method']				= 'package'
 default[:php]['version'] 					= '5.4.21'
 default[:php]['versions'] 					= %w(5.5.6 5.4.22 5.3.27)
 default[:php]['environment'] 				= 'production'
-default[:php]['group'] 						= 'staff'
+default[:php]['group'] 						= 'admin'
 default[:php]['arch']						= (kernel['machine'] =~ /x86_64/ ? "x86_64" : "i386")
 
 default[:php]['fpm_user']      				= node[:web_server]['user']
@@ -12,11 +12,11 @@ default[:php]['packages'] 					= %w(php5-fpm php5-cli php5-common php5-dev memca
 
 default[:php]['composer']['install_path'] 	= '/usr/local/bin'
 
-default[:php]['phpbuild']['install_path'] 	= "/usr/local/php-build"
+default[:php]['phpbuild']['install_path'] 	= "/usr/share/php-build"
 default[:php]['phpbuild']['repository'] 	= "git://github.com/CHH/php-build.git"
 default[:php]['phpbuild']['revision'] 		= "99be44e6c45ee5edd147cea237cba3e4f1480f6c"
 
-default[:php]['phpenv']['path'] 			= "/usr/local/phpenv"
+default[:php]['phpenv']['path'] 			= "/usr/share/phpenv"
 default[:php]['phpenv']['repository'] 		= 'git://github.com/CHH/phpenv.git'
 default[:php]['phpenv']['revision'] 		= '3cd7ab3ef679b05c3af80e1ff92ec75fca3f9c6b'
 
