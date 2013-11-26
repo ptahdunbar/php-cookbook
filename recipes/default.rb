@@ -27,7 +27,7 @@ Chef::Log.info "[php] XDebug enabled." if node[:php][:xdebug][:remote_enable]
 
 directory node[:php][:xdebug][:log_dir]
 
-template "/etc/php5/conf.d/xdebug.ini" do
+template "/etc/php5/fpm/conf.d/xdebug.ini" do
 	mode 0644
 	source 'xdebug.ini.erb'
 	cookbook if node[:php][:custom_cookbook_override]
