@@ -5,6 +5,8 @@ default[:php][:environment] 				= 'production' unless node[:chef_environment]
 default[:php][:group] 						= 'admin'
 default[:php][:arch]						= (kernel[:machine] =~ /x86_64/ ? "x86_64" : "i386")
 
+Chef::Log.info "php chef_environment: #{node[:chef_environment]}"
+
 default[:php][:fpm_user]      				= node[:nginx][:user] if node[:apache][:user]
 default[:php][:fpm_group]     				= node[:nginx][:group] if node[:apache][:group]
 default[:php][:fpm_user]      				= node[:nginx][:user] if node[:nginx][:user]
