@@ -1,11 +1,9 @@
 default[:php][:install_method]				= 'package'
 default[:php][:version] 					= '5.4.21'
 default[:php][:versions] 					= %w(5.5.6 5.4.22 5.3.27)
-default[:php][:environment] 				= 'production' unless node[:chef_environment]
+default[:php][:environment] 				= node[:chef_environment] ? node[:chef_environment] : 'production'
 default[:php][:group] 						= 'admin'
 default[:php][:arch]						= (kernel[:machine] =~ /x86_64/ ? "x86_64" : "i386")
-
-Chef::Log.info "php chef_environment: #{node[:chef_environment]}"
 
 default[:php][:fpm_user]      				= node[:nginx][:user] if node[:apache][:user]
 default[:php][:fpm_group]     				= node[:nginx][:group] if node[:apache][:group]
