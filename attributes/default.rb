@@ -37,7 +37,7 @@ default[:php][:xdebug][:var_display_max_data] 		= -1
 default[:php][:xdebug][:var_display_max_depth] 	= -1
 default[:php][:xdebug][:log_dir] 					= "/var/log/xdebug"
 
-default[:php][:xdebug][:profiler_enable] 			= true
+default[:php][:xdebug][:profiler_enable] 			= false
 default[:php][:xdebug][:profiler_enable_trigger] 	= false
 default[:php][:xdebug][:profiler_output_dir] 		= "/tmp"
 default[:php][:xdebug][:profiler_output_name] 		= "cachegrind.out.%t-%s"
