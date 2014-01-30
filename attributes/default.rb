@@ -26,7 +26,7 @@ default[:php][:phpenv][:revision] 		= '3cd7ab3ef679b05c3af80e1ff92ec75fca3f9c6b'
 
 default[:php][:prefix_dir] 						= "#{node[:php][:phpenv][:path]}/versions"
 
-default[:php][:xdebug][:remote_enable] 			= true
+default[:php][:xdebug][:remote_enable] 			    = false
 default[:php][:xdebug][:remote_host] 				= ""
 default[:php][:xdebug][:remote_port] 				= 9000
 default[:php][:xdebug][:collect_includes] 			= true
