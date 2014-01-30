@@ -304,7 +304,12 @@ pm.max_requests = #{node['php']['pm']['max_requests']};
 ; Default Value: not set
 ; Note: slowlog is mandatory if request_slowlog_timeout is set
 ;slowlog = log/$pool.log.slow
- 
+
+<% if node[:php][:enable_slowlog] %>
+slowlog = <%= node[:php][:slowlog_path] %>
+request_slowlog_timeout = <%= node[:php][:request_slowlog_timeout] %>
+<% end %>
+
 ; The timeout for serving a single request after which a PHP backtrace will be
 ; dumped to the 'slowlog' file. A value of '0s' means 'off'.
 ; Available units: s(econds)(default), m(inutes), h(ours), or d(ays)
