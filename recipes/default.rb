@@ -26,7 +26,9 @@ end
 
 Chef::Log.info "[php] XDebug enabled." if node[:php][:xdebug][:remote_enable]
 
+directory node[:php][:log_dir]
 directory node[:php][:xdebug][:log_dir]
+directory node[:php][:xdebug][:profiler_output_dir]
 
 template "/etc/php5/fpm/conf.d/xdebug.ini" do
 	mode 0644
