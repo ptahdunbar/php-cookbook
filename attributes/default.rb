@@ -18,6 +18,11 @@ default[:php][:pm][:max_spare_servers] = 5;
 default[:php][:pm][:process_idle_timeout] = '10s';
 default[:php][:pm][:max_requests] = 50;
 
+default[:php][:enable_slowlog] = false;
+default[:php][:slowlog_path] = '/var/log/php-fpm/slow.log';
+default[:php][:request_slowlog_timeout] = '10s';
+
+
 default[:php][:dependencies]  				= %w(libcurl4-openssl-dev libpq-dev libreadline-dev openssl libssl-dev libxslt1-dev zlib1g-dev libbz2-dev libc-client2007e-dev libkrb5-dev libcurl4-gnutls-dev libfreetype6-dev libgmp3-dev libjpeg8-dev libmcrypt-dev libpng12-dev libt1-dev libmhash-dev libexpat1-dev libicu-dev libtidy-dev re2c lemon)
 default[:php][:packages] 					= %w(php5-fpm php5-cli php5-common php5-dev memcached php5-memcached php5-imagick php5-xdebug php5-mcrypt php5-mysql php5-imap php5-curl php-pear php5-gd php-apc)
 
