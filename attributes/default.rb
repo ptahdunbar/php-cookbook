@@ -11,16 +11,17 @@ default[:php][:fpm_user]      				= node[:nginx][:user] if node[:nginx][:user]
 default[:php][:fpm_group]     				= node[:nginx][:group] if node[:nginx][:group]
 
 #{node['php']['fpm_group']}
-default[:php][:pm][:max_children] = 30;
-default[:php][:pm][:start_servers] = 2;
-default[:php][:pm][:min_spare_servers] = 2;
-default[:php][:pm][:max_spare_servers] = 5;
-default[:php][:pm][:process_idle_timeout] = '10s';
-default[:php][:pm][:max_requests] = 50;
+default[:php][:pm][:max_children] = 30
+default[:php][:pm][:start_servers] = 2
+default[:php][:pm][:min_spare_servers] = 2
+default[:php][:pm][:max_spare_servers] = 5
+default[:php][:pm][:process_idle_timeout] = '10s'
+default[:php][:pm][:max_requests] = 50
 
+default[:php][:log_dir] = '/var/log/php-fpm'
 default[:php][:enable_slowlog] = false;
-default[:php][:slowlog_path] = '/var/log/php-fpm/slow.log';
-default[:php][:request_slowlog_timeout] = '10s';
+default[:php][:slowlog_path] = "#{node[:php][:log_dir]}/slow.log"
+default[:php][:request_slowlog_timeout] = '10s'
 
 
 default[:php][:dependencies]  				= %w(libcurl4-openssl-dev libpq-dev libreadline-dev openssl libssl-dev libxslt1-dev zlib1g-dev libbz2-dev libc-client2007e-dev libkrb5-dev libcurl4-gnutls-dev libfreetype6-dev libgmp3-dev libjpeg8-dev libmcrypt-dev libpng12-dev libt1-dev libmhash-dev libexpat1-dev libicu-dev libtidy-dev re2c lemon)
@@ -48,9 +49,9 @@ default[:php][:xdebug][:dump_globals] 				= true
 default[:php][:xdebug][:var_display_max_children] 	= -1
 default[:php][:xdebug][:var_display_max_data] 		= -1
 default[:php][:xdebug][:var_display_max_depth] 	= -1
-default[:php][:xdebug][:log_dir] 					= "/var/log/xdebug"
+default[:php][:xdebug][:log_dir] 					= "#{default[:php][:log_dir]}/xdebug"
 
 default[:php][:xdebug][:profiler_enable] 			= false
 default[:php][:xdebug][:profiler_enable_trigger] 	= false
-default[:php][:xdebug][:profiler_output_dir] 		= "/tmp"
+default[:php][:xdebug][:profiler_output_dir] 		= "#{default[:php][:log_dir]}/profiler"
 default[:php][:xdebug][:profiler_output_name] 		= "cachegrind.out.%t-%s"
