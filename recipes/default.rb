@@ -17,8 +17,6 @@ end
 Chef::Log.info "[php] Install Method: #{node[:php][:install_method]}"
 
 include_recipe "php::#{node['php']['install_method']}"
-include_recipe 'php::composer'
-include_recipe 'php::memcached'
 
 template "/etc/php5/fpm/pool.d/www.conf.erb" do
 	source "www.conf.erb"
