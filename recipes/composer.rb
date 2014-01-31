@@ -13,5 +13,5 @@ remote_file "#{node['php']['composer']['install_path']}/composer" do
 end
 
 node[:php][:composer][:packages].each do |pkg|
-	command 'composer global require "#{pkg}"'
+	execute "composer global require '#{pkg}'"
 end
