@@ -13,12 +13,12 @@ remote_file "#{node['php']['composer']['install_path']}/composer" do
 end
 
 node[:php][:composer][:packages].each do |pkg|
-	execute "composer global require #{pkg}" do
+	bash "$> composer global require #{pkg}" do
 		command "composer global require #{pkg}"
 		not_if { "which #{pkg}" }
 	end
 end
 
-execute "update composer path" do
-	command "echo 'export PATH=$PATH:~/.composer/vendor/bin' >> ~/.bashrc"
+execute "update composer path: ~/.bashrc" do
+	bash "echo 'export PATH=$PATH:~/.composer/vendor/bin' >> ~/.bashrc"
 end
