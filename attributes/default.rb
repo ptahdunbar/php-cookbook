@@ -28,7 +28,7 @@ default[:php][:dependencies]  				= %w(libcurl4-openssl-dev libpq-dev libreadlin
 default[:php][:packages] 					= %w(php5-fpm php5-cli php5-common php5-dev php5-imagick php5-xdebug php5-mcrypt php5-mysql php5-imap php5-curl php-pear php5-gd php-apc)
 
 default[:php][:composer][:install_path] 	= '/usr/local/bin'
-default[:php][:composer][:packages] 	= %w["phing/phing:2.6.*" "phpunit/phpunit:3.7.*" "wp-cli/wp-cli:0.13"]
+default[:php][:composer][:packages] 	= %w("phing/phing:2.6.*" "phpunit/phpunit:3.7.*" "wp-cli/wp-cli:0.13")
 
 default[:php][:phpbuild][:install_path] 	= "/usr/share/php-build"
 default[:php][:phpbuild][:repository] 	= "git://github.com/CHH/php-build.git"
