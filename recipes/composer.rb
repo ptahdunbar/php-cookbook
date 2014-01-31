@@ -19,6 +19,6 @@ node[:php][:composer][:packages].each do |pkg|
 	end
 end
 
-execute "update composer path: ~/.bashrc" do
-	bash "echo 'export PATH=$PATH:~/.composer/vendor/bin' >> ~/.bashrc"
+bash "update composer path: ~/.bashrc" do
+	command "echo 'export PATH=$PATH:~/.composer/vendor/bin' >> ~/.bashrc"
 end
