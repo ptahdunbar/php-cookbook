@@ -14,6 +14,7 @@ end
 
 node[:php][:composer][:packages].each do |pkg|
 	execute "composer global require #{pkg}"
+	not_if { "which #{pkg}" }
 end
 
 execute "update composer path" do
