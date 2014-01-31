@@ -19,13 +19,3 @@ end
 execute "update composer path" do
 	command "echo 'export PATH=$PATH:~/.composer/vendor/bin' >> .bashrc"
 end
-
-file "/home/user/.bashrc" do
-    owner   "root"
-    #something goes here.... i don't know what. but i write
-    #%{bash -i -c "source /etc/bash/bashrc && bashrc update"}
-
-    content "JAVA_HOME=/usr/java/jdk1.1.0.05"
-    content "PATH=$PATH:JAVA_HOME/bin"
-
-  end
