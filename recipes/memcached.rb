@@ -1,4 +1,5 @@
 package "memcached"
+package "php5-memcached"
 
 service "memcached" do
 	supports :start => true, :stop => true, :'force-reload' => true, :status => true
