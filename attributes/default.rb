@@ -28,15 +28,16 @@ default[:php][:dependencies]  				= %w(libcurl4-openssl-dev libpq-dev libreadlin
 default[:php][:packages] 					= %w(php5-fpm php5-cli php5-common php5-dev php5-imagick php5-xdebug php5-mcrypt php5-mysql php5-imap php5-curl php-pear php5-gd php-apc)
 
 default[:php][:composer][:install_path] 	= '/usr/local/bin'
-default[:php][:composer][:packages] 	= %w("phing/phing:2.6.*" "phpunit/phpunit:3.7.*" "wp-cli/wp-cli:0.13")
+default[:php][:composer][:packages] 	    = {"phpunit/phpunit" => "3.7.*", "phing/phing" => "2.4.*", "wp-cli/wp-cli" => "0.13"}
+default[:php][:composer][:user] 	        = 'vagrant'
 
 default[:php][:phpbuild][:install_path] 	= "/usr/share/php-build"
-default[:php][:phpbuild][:repository] 	= "git://github.com/CHH/php-build.git"
+default[:php][:phpbuild][:repository] 	    = "git://github.com/CHH/php-build.git"
 default[:php][:phpbuild][:revision] 		= "99be44e6c45ee5edd147cea237cba3e4f1480f6c"
 
-default[:php][:phpenv][:path] 			= "/usr/share/phpenv"
+default[:php][:phpenv][:path] 			    = "/usr/share/phpenv"
 default[:php][:phpenv][:repository] 		= 'git://github.com/CHH/phpenv.git'
-default[:php][:phpenv][:revision] 		= '3cd7ab3ef679b05c3af80e1ff92ec75fca3f9c6b'
+default[:php][:phpenv][:revision] 		    = '3cd7ab3ef679b05c3af80e1ff92ec75fca3f9c6b'
 
 
 default[:php][:prefix_dir] 						= "#{node[:php][:phpenv][:path]}/versions"
@@ -49,7 +50,7 @@ default[:php][:xdebug][:collect_params] 			= true
 default[:php][:xdebug][:dump_globals] 				= true
 default[:php][:xdebug][:var_display_max_children] 	= -1
 default[:php][:xdebug][:var_display_max_data] 		= -1
-default[:php][:xdebug][:var_display_max_depth] 	= -1
+default[:php][:xdebug][:var_display_max_depth] 	    = -1
 default[:php][:xdebug][:log_dir] 					= "#{default[:php][:log_dir]}/xdebug"
 
 default[:php][:xdebug][:profiler_enable] 			= false

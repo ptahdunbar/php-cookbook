@@ -6,19 +6,13 @@
 # All rights reserved - Do Not Redistribute
 #
 
-remote_file "#{node['php']['composer']['install_path']}/composer" do
-	source 'http://getcomposer.org/composer.phar'
-	mode   '0755'
-	not_if { File.exists?("#{node['php']['composer']['install_path']}/composer") }
-end
+include_recipe "composer"
 
-node[:php][:composer][:packages].each do |pkg|
-	bash "$> composer global require #{pkg}" do
-		command "composer global require #{pkg}"
-		not_if { "which #{pkg}" }
-	end
-end
-
-bash "update composer path: ~/.bashrc" do
-	command "echo 'export PATH=$PATH:~/.composer/vendor/bin' >> ~/.bashrc"
+composer_package "Install PHP tools for development" do
+    action [:create, :update]
+    user node[:composer][:user]
+    group node[:composer][:group]
+    install_path node[:composer][:target_dir]
+    packages (node[:php][:composer][:packages])
+    config ({"bin-dir" => "/usr/local/bin"})
 end

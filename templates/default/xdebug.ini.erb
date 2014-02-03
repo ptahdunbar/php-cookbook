@@ -1,22 +1,22 @@
 [xdebug]
 xdebug.remote_enable=<%= node[:php][:xdebug][:remote_port] ? 1 : 0 %>
 xdebug.remote_port=<%= node[:php][:xdebug][:remote_port] %>
-xdebug.remote_log=<%= node[:php][:xdebug][:log_dir] %>/xdebug.log
+xdebug.remote_log="<%= node[:php][:xdebug][:log_dir] %>/xdebug.log"
 
 xdebug.collect_includes=<%= node[:php][:xdebug][:collect_includes] %>
 xdebug.collect_params=<%= node[:php][:xdebug][:collect_params] %>
 xdebug.dump_globals=<%= node[:php][:xdebug][:dump_globals] ? 1 : 0 %>
-xdebug.var_display_max_children=<%= node[:php][:xdebug][:var_display_max_children] %>
-xdebug.var_display_max_data=<%= node[:php][:xdebug][:var_display_max_data] %>
-xdebug.var_display_max_depth=<%= node[:php][:xdebug][:var_display_max_depth] %>
+xdebug.var_display_max_children="<%= node[:php][:xdebug][:var_display_max_children] %>"
+xdebug.var_display_max_data="<%= node[:php][:xdebug][:var_display_max_data] %>"
+xdebug.var_display_max_depth="<%= node[:php][:xdebug][:var_display_max_depth] %>"
 
-;xdebug.remote_host=localhost
-xdebug.remote_handler=dbgp
-xdebug.remote_mode=req
+;xdebug.remote_host="localhost"
+xdebug.remote_handler="dbgp"
+xdebug.remote_mode="req"
 xdebug.remote_connect_back=1
 xdebug.collect_includes = 1
 
 xdebug.profiler_enable=<%= node[:php][:xdebug][:profiler_enable] ? 1 : 0 %>
 xdebug.profiler_enable_trigger=<%= node[:php][:xdebug][:profiler_enable_trigger] ? 1 : 0 %>
-xdebug.profiler_output_dir=<%= node[:php][:xdebug][:profiler_output_dir] %>
-xdebug.profiler_output_name=<%= node[:php][:xdebug][:profiler_output_name] %>
+xdebug.profiler_output_dir="<%= node[:php][:xdebug][:profiler_output_dir] %>"
+xdebug.profiler_output_name="<%= node[:php][:xdebug][:profiler_output_name] %>"

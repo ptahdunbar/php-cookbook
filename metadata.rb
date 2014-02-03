@@ -12,6 +12,7 @@ depends 'xml'
 depends 'git'
 depends 'base'
 depends 'web'
+depends 'composer'
 
 supports 'ubuntu'
 
