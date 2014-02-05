@@ -10,6 +10,8 @@ default[:php][:fpm_group]     				= node[:nginx][:group] if node[:apache][:group
 default[:php][:fpm_user]      				= node[:nginx][:user] if node[:nginx][:user]
 default[:php][:fpm_group]     				= node[:nginx][:group] if node[:nginx][:group]
 
+default[:php][:variables_order] = 'EGPCS'
+
 #{node['php']['fpm_group']}
 default[:php][:pm][:max_children] = 30
 default[:php][:pm][:start_servers] = 2
